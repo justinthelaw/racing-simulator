@@ -57,7 +57,7 @@ No diagram was produced due to a lack of complexity in the interfaces and produc
 3. What alternative approaches were considered and why were they rejected?
    One major alternative approach would be to stuff all variables AND methods into one large main method. This would simplfy the coding for myself in this very moment; HOWEVER, this would make it difficult to change parameters and functions due to the lack of readability and modularity. By breaking out the functionality into methods and breaking down variables into method-scoped or class parameters, any other programmer will be able to modify small chunks of the code base without needing to manually refactor an entire monoloth.
 
-   A second variation would be forgoing the usage of the Scanner and hard-coding the numbe rof positions. This would be the wrong way to go, as demonstration of the robustness of the program requires input of many different possible positions to check for bugs in the position-based manipulation and to provide interactivity to the end-user.
+   A second variation would be forgoing the usage of the Scanner and hard-coding the number of positions. This would be the wrong way to go, as demonstration of the robustness of the program requires input of many different possible positions to check for bugs in the position-based manipulation and to provide interactivity to the end-user.
 
    A third variation was to integrate all race messages and constants into the individual methods themselves. This was not chosen so that future programmers can change these constants and messages without diving deeper into the codebase. In addition, anything printed to console or used as a race parameter should be immutable and only changeable through hard-coding again.
 
