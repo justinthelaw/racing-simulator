@@ -86,4 +86,5 @@ The program was written in VSCode on WSL 2, Ubuntu 20.04.4 LTS. Please refer to 
 Below is an output in the VSCode Integrated Terminal.
 
 <img src="./RaceSim-Completed-1.png" alt="./RaceSim-Completed-1.png">
-<img src="./RaceSim-Completed-2.png" alt="./RaceSim-Completed-2.png" width="90%">
+<img src="./RaceSim-Completed-2.png" alt="./RaceSim-Completed-2.png">
+<img src="./RaceSim-Completed-3.png" alt="./RaceSim-Completed-3.png">
