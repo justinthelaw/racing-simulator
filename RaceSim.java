@@ -71,8 +71,8 @@ public class RaceSim {
 
    // initialize identifying ymbols for each racer
    // to be printed to console and use in roll position switch statement
-   private static final String hareSymbol = "H";
-   private static final String tortoiseSymbol = "T";
+   private static final String HARE_SYMBOL = "H";
+   private static final String TORTOISE_SYMBOL = "T";
 
 
    /**
@@ -134,16 +134,16 @@ public class RaceSim {
       int simulatedSeconds = 0;
 
       // print starting positions of racers
-      printPosition(finishPosition, tortoisePosition, tortoiseSymbol);
+      printPosition(finishPosition, tortoisePosition, TORTOISE_SYMBOL);
       System.out.println();
-      printPosition(finishPosition, harePosition, hareSymbol);
+      printPosition(finishPosition, harePosition, HARE_SYMBOL);
       System.out.println();
 
       do
       { // continue the race until a racer passes the finish line
          // roll and increment the position of each racer
-         tortoisePosition += rollPosition(tortoisePosition, tortoiseSymbol);
-         harePosition += rollPosition(harePosition, hareSymbol);
+         tortoisePosition += rollPosition(tortoisePosition, TORTOISE_SYMBOL);
+         harePosition += rollPosition(harePosition, HARE_SYMBOL);
          // add a step every iteration
          simulatedSeconds++;
          // ensure the racers remain at finish line if they go past finish
@@ -161,9 +161,9 @@ public class RaceSim {
          }
          System.out.println();
          // print positions using T and H symbols
-         printPosition(finishPosition, tortoisePosition, tortoiseSymbol);
+         printPosition(finishPosition, tortoisePosition, TORTOISE_SYMBOL);
          System.out.println();
-         printPosition(finishPosition, harePosition, hareSymbol);
+         printPosition(finishPosition, harePosition, HARE_SYMBOL);
          // check to see if the tortoise can bite the hare (after start)
          checkBite(harePosition, tortoisePosition);
       }
@@ -243,7 +243,7 @@ public class RaceSim {
 
       switch(symbol)
       { // check symbol before using roll vs chances, action decisions
-         case tortoiseSymbol:
+         case TORTOISE_SYMBOL:
             if (roll <= FAST_PLOD)
             {
                increment = TORTOISE_ACTION_MAP.get("FAST_PLOD");
@@ -261,7 +261,7 @@ public class RaceSim {
                System.out.println(ERROR_MESSAGE);
             }
             break;
-         case hareSymbol:
+         case HARE_SYMBOL:
             if (roll <= BIG_HOP)
             {
                increment = HARE_ACTION_MAP.get("BIG_HOP");
