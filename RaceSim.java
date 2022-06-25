@@ -9,8 +9,8 @@
  *
  * Post-Conditions: After kicking off the race with a console message, the
  * current position of the hare and tortoise is displayed at each program step
- * until one or both reach(es) the end position (Positions) of the race, where a
- * message will be displayed to console identifying the winner or lack thereof
+ * until one or both reach(es) the end position of the race, where a
+ * message will be displayed to console identifying the winner or a tie
  *
  * Reference: Refer to the README.md file for project description and solution
  * discussion
@@ -101,7 +101,7 @@ public class RaceSim {
 
    /**
     * method obtains the finish position from user input
-    * disallows incorrect inputs (non-integer and >50 positions)
+    * disallows incorrect inputs (non-integer and <50 positions)
     * @return int
     */
    private static int getFinishPosition() {
@@ -130,6 +130,9 @@ public class RaceSim {
       int tortoisePosition = 0;
       int harePosition = 0;
 
+      // initialize amount of "steps" (simulated seconds)
+      int simulatedSeconds = 0;
+
       // print starting positions of racers
       printPosition(finishPosition, tortoisePosition, tortoiseSymbol);
       System.out.println();
@@ -141,7 +144,9 @@ public class RaceSim {
          // roll and increment the position of each racer
          tortoisePosition += rollPosition(tortoisePosition, tortoiseSymbol);
          harePosition += rollPosition(harePosition, hareSymbol);
-         // ensure the racers are printed if they go past finish
+         // add a step every iteration
+         simulatedSeconds++;
+         // ensure the racers remain at finish line if they go past finish
          if (harePosition > finishPosition)
          {
             harePosition = finishPosition;
@@ -150,6 +155,11 @@ public class RaceSim {
          {
             tortoisePosition = finishPosition;
          }
+         // print separation line between each step of the race
+         for (int i = 0; i <= finishPosition; i++) {
+            System.out.print("-");
+         }
+         System.out.println();
          // print positions using T and H symbols
          printPosition(finishPosition, tortoisePosition, tortoiseSymbol);
          System.out.println();
@@ -172,6 +182,8 @@ public class RaceSim {
       {
          System.out.println(TORTOISE_WIN_MESSAGE);
       }
+      // print amount of "steps" (simulated seconds) the race took
+      System.out.println("Race took " + simulatedSeconds + " simulated seconds to finish! There were " + finishPosition + " positions to get to the finish line.");
    } // end raceSimulator method
 
 
@@ -246,7 +258,7 @@ public class RaceSim {
             }
             else
             {
-               System.out.println("Something Went Wrong!");
+               System.out.println(ERROR_MESSAGE);
             }
             break;
          case hareSymbol:
@@ -272,7 +284,7 @@ public class RaceSim {
             }
             else
             {
-               System.out.println("Something Went Wrong!");
+               System.out.println(ERROR_MESSAGE);
             }
             break;
          default:
